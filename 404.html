@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/WeatherGuide/" />
+    <script>
+      sessionStorage.redirect = location.href
+    </script>
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <script>
+      const redirect = sessionStorage.redirect
+      if (redirect) {
+        const base = '/WeatherGuide/'
+        const path = redirect.replace(location.origin + base, '/')
+        location.replace(base + path.replace(/^\//, ''))
+      } else {
+        location.replace('/WeatherGuide/')
+      }
+    </script>
+  </body>
+</html>
